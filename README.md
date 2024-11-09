@@ -9,7 +9,7 @@ we’ll explore how to set up a Role-Based Access Control (RBAC) system where fe
 3. **Flexible Role Management:** Easily add new roles, update permissions, or change user roles without modifying the frontend, allowing for scalable access control.
 4. **Applications and Use Cases:** Ideal for admin dashboards, enterprise software, e-commerce, and educational platforms where structured access control is necessary.
 
-[DEMO](https://sushantrahate.github.io/role-based-access-control/)
+<a href="[https://www.w3schools.com](https://sushantrahate.github.io/role-based-access-control/)" target="_blank">LIVE DEMO</a>
 
 Here is the full article link: [https://dev.to/sushantrahate/role-based-access-control-rbac-with-feature-centric-approach](https://dev.to/sushantrahate/role-based-access-control-rbac-with-feature-centric-approach)
 
