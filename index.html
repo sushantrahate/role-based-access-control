@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role-Based Access Control Demo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            bg_light: '#e7e7e7',
+            bg_header: '#fdfdfd',
+            card_light: '#fdfdfd',
+            card_input_bg_light: '#fdfdfd',
+            text_light: '#1E293B',
+            btn_bg_light: '#fdfdfd',
+            btn_hover_bg_light: '#c9c9c9',
+            light_end: '',
+            bg_dark: '#002137',
+            bg_header_dark: '#002945',
+            card_dark: '#002945',
+            hover_dark: '#00406c',
+            btn_bg_dark: '#003A61',
+            outline_dark: '#002138',
+            input_ring_dark: '#003051',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bg_dark text-gray-100 p-4">
+  <div class="container mx-auto">
+    <h1 class="text-2xl font-bold mb-4 text-center">Role-Based Access Control</h1>
+
+    <div class="p-4 bg-indigo-900 mb-10">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Backend</h2>
+      <!-- Control Panel - Modules & Features -->
+      <div id="controlPanel" class="bg-card_dark p-4 rounded shadow mb-10">
+        <h2 class="text-xl font-semibold mb-4">Control Panel - Modules & Features</h2>
+        <div id="moduleCards" class="grid gap-4 grid-cols-1 md:grid-cols-2"></div>
+      </div>
+      <!-- Control Panel - Modules & Features End -->
+
+      <!-- Role Creation -->
+      <div id="roleCreation" class="bg-card_dark p-4 rounded shadow mb-10">
+        <h2 class="text-xl font-semibold mb-4">Create new Role</h2>
+        <input id="roleNameInput" type="text" placeholder="New Role Name" autocomplete="off"
+          class="border border-gray-600 px-2 py-1 rounded mb-4 bg-slate-700 text-sm">
+        <button onclick="addRole()" class="ml-2 px-4 py-1 text-white bg-blue-700 rounded-md">Add Role</button>
+      </div>
+      <!-- Role Creation End -->
+
+      <!-- Add / Update Feature access to Role -->
+      <div class="bg-card_dark p-4 rounded shadow mb-10">
+        <label for="roleSelect" class="block text-xl font-semibold mb-4">Add / Update Feature access to Role</label>
+        <select id="roleSelect" class="border px-2 py-1 rounded bg-slate-700 border-gray-600 mb-4"
+          onchange="showRoleFeatures()">
+          <option value="0">Select Role</option>
+        </select>
+        <div id="roleFeatures" class="bg-slate-700 p-4 rounded shadow"></div>
+      </div>
+      <!-- Add / Update Feature access to Role End -->
+
+      <div id="userPanel" class="bg-card_dark p-4 rounded shadow mb-10">
+        <h2 class="text-xl font-semibold mb-4">Create new User</h2>
+        <input id="userNameInput" type="text" placeholder="New User Name" autocomplete="off"
+          class="border border-gray-600 px-2 py-1 rounded mb-4 bg-slate-700 text-sm">
+        <select id="userRoleSelect" class="border px-2 py-1 rounded bg-slate-700 border-gray-600 mb-4">
+          <option value="">Select Role for User</option>
+        </select>
+        <button onclick="addUser()" class="ml-2 px-4 py-1 text-white bg-blue-700 rounded-md">Add User</button>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Data</h2>
+        <pre class="p-4 bg-slate-700 rounded-md h-96 overflow-y-scroll" id="dataDisplay"></pre>
+      </div>
+
+    </div>
+
+    <div class="p-4 bg-violet-900 mb-10">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Frontend</h2>
+      <!-- User Panel -->
+
+      <div class="bg-card_dark p-4 rounded shadow mb-10">
+        <div class="mt-4">
+          <label for="userSelect" class="block font-semibold mb-2">Select User</label>
+          <select id="userSelect" class="border px-2 py-1 rounded bg-slate-700 border-gray-600 mb-4"
+            onchange="showUserAccess()">
+            <option value="0">Select User</option>
+          </select>
+        </div>
+
+        <div id="userAccess" class="bg-slate-700 p-4 rounded shadow">
+          <h4 id="user-name" class="font-semibold mb-2"></h4>
+          <ul class="mb-4">
+            <li id="profile" class="p-2 border border-slate-600 mb-2 rounded-2xl hidden">if(profile)</li>
+            <li id="view-users" class="p-2 border border-slate-600 mb-2 rounded-2xl hidden">if(view-users)</li>
+            <li id="edit-users" class="p-2 border border-slate-600 mb-2 rounded-2xl hidden">if(edit-users)</li>
+            <li id="delete-user" class="p-2 border border-slate-600 mb-2 rounded-2xl hidden">if(delete-user)</li>
+            <li id="view-reports" class="p-2 border border-slate-600 mb-2 rounded-2xl hidden">if(view-reports)</li>
+            <li id="edit-reports" class="p-2 border border-slate-600 mb-2 rounded-2xl hidden">if(edit-reports)</li>
+          </ul>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
