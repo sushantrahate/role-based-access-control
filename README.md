@@ -11,6 +11,6 @@ we’ll explore how to set up a Role-Based Access Control (RBAC) system where fe
 
 [LIVE DEMO](https://sushantrahate.github.io/role-based-access-control)
 
-Here is the full article link: [https://dev.to/sushantrahate/role-based-access-control-rbac-with-feature-centric-approach](https://dev.to/sushantrahate/role-based-access-control-rbac-with-feature-centric-approach)
+Here is the full article link: [https://dev.to/sushantrahate/role-based-access-control-rbac-with-feature-centric-approach-oj5](https://dev.to/sushantrahate/role-based-access-control-rbac-with-feature-centric-approach-oj5)
 
 If you liked it then please show your love by ⭐ the repo
